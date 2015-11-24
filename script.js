@@ -1,15 +1,20 @@
-var displayNumbers = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
-var displaySuits = ["diamonds", "clubs", "hearts", "spades"];
+var displayNumber = function(strength) {
+    return ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"][strength - 1];
+}
+
+var displaySuit = function(strength) {
+    return ["diamonds", "clubs", "hearts", "spades"][strength - 1];
+}
 
 var deck = [];
 
 var Card = function(numberStrength, suitStrength) {
-    this.suitStrength = suitStrength;
+    this.suitStrength   = suitStrength;
     this.numberStrength = numberStrength;
-    this.display = {
-        number: displayNumbers[numberStrength - 1],
-        suit: displaySuits[suitStrength - 1],
-        full: displayNumbers[numberStrength - 1] +" of "+ displaySuits[suitStrength - 1]
+    this.display        = {
+                        number:     displayNumber(numberStrength),
+                        suit:       displaySuit(suitStrength),
+                        full:       displayNumber(numberStrength) +" of "+ displaySuit(suitStrength)
     }
 }
 
